@@ -20,4 +20,4 @@ Latest version of Xcode 8 is required to build Motivation since it's written in 
 
 ## Credits
 
-All credits go to original author [Sam Soffes](https://github.com/soffes/Motivation). Since Sam doesn't accept pull requests for quite long time I have merged my addition, option to set birth time, into master and make this (release)[https://github.com/valeriyvan/Motivation/releases] available.
+All credits go to original author [Sam Soffes](https://github.com/soffes/Motivation). Since Sam doesn't accept pull requests for quite long time I have merged my addition, option to set birth time, into master and make this [release](https://github.com/valeriyvan/Motivation/releases) available.
