@@ -10,10 +10,12 @@ You can configure your age once you picked it in Screen Saver Preferences in Sys
 
 
 ## Installation
-
-**[Download the latest release](https://github.com/soffes/Motivation/releases).** Unzip and double-click.
+releases
+**[Download the latest release](https://github.com/valeriyvan/Motivation/releases).** Unzip and double-click.
 
 
 ## Building
 
-Xcode 7.0 beta 5 is required to build Motivation since it's written in Swift 2.
+Latest version of Xcode 8 is required to build Motivation since it's written in Swift 3.
+
+All credits go to original author [Sam Soffes](https://github.com/soffes/Motivation). Since Sam doesn't accept pull requests for quite long time I have merged my addition, option to set birth time, into master and make this release available.
