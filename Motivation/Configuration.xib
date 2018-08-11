@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="17C88" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8173.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigurationWindowController" customModule="Motivation" customModuleProvider="target">
             <connections>
+                <outlet property="birthdatePicker" destination="24i-HD-fhj" id="bHR-UT-Eba"/>
                 <outlet property="lightRadio" destination="SYp-OG-PUb" id="QAx-UK-2Qi"/>
                 <outlet property="moderateRadio" destination="pTh-rE-L1F" id="Okf-GD-efx"/>
                 <outlet property="terrifyingRadio" destination="daF-cg-qud" id="Qzr-li-xhu"/>
@@ -19,13 +21,13 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="266" height="184"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
-            <view key="contentView" id="EiT-Mj-1SZ">
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" misplaced="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="266" height="184"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cf0-hz-k84">
-                        <rect key="frame" x="36" y="147" width="91" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cf0-hz-k84">
+                        <rect key="frame" x="35" y="147" width="90" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Your Birthday:" id="niJ-ql-s5d">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -33,13 +35,12 @@
                         </textFieldCell>
                     </textField>
                     <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="24i-HD-fhj">
-                        <rect key="frame" x="138" y="144" width="111" height="27"/>
+                        <rect key="frame" x="136" y="144" width="113" height="27"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="6zn-zD-imf">
                             <font key="font" metaFont="system"/>
-                            <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
-                                <!--1982-02-12 08:00:00 -0800-->
-                                <timeZone key="timeZone" name="US/Pacific"/>
-                            </calendarDate>
+                            <date key="date" timeIntervalSinceReferenceDate="-595929600">
+                                <!--1982-02-12 16:00:00 +0000-->
+                            </date>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </datePickerCell>
@@ -49,7 +50,7 @@
                         </connections>
                     </datePicker>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nsQ-3M-79j">
-                        <rect key="frame" x="192" y="13" width="60" height="32"/>
+                        <rect key="frame" x="193" y="13" width="59" height="32"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JAB-GH-sNP">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -63,7 +64,7 @@ DQ
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="SYp-OG-PUb">
-                        <rect key="frame" x="137" y="104" width="53" height="18"/>
+                        <rect key="frame" x="135" y="104" width="53" height="18"/>
                         <buttonCell key="cell" type="radio" title="Light" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="tvg-2W-kKo">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -74,7 +75,7 @@ DQ
                         </connections>
                     </button>
                     <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="pTh-rE-L1F">
-                        <rect key="frame" x="137" y="82" width="81" height="18"/>
+                        <rect key="frame" x="135" y="82" width="81" height="18"/>
                         <buttonCell key="cell" type="radio" title="Moderate" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="NDS-f7-gMb">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -85,7 +86,7 @@ DQ
                         </connections>
                     </button>
                     <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="daF-cg-qud">
-                        <rect key="frame" x="137" y="60" width="78" height="18"/>
+                        <rect key="frame" x="135" y="60" width="80" height="18"/>
                         <buttonCell key="cell" type="radio" title="Terrifying" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="6uM-dm-epD">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -95,14 +96,25 @@ DQ
                             <outlet property="nextKeyView" destination="nsQ-3M-79j" id="2fj-Vb-naP"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nGe-GI-6M7">
-                        <rect key="frame" x="18" y="105" width="109" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGe-GI-6M7">
+                        <rect key="frame" x="18" y="105" width="107" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Motivation Level:" id="bSs-Rq-qqI">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HSJ-VB-Zwi">
+                        <rect key="frame" x="35" y="123" width="52" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Time" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3dd-s4-7Zs">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="time:" target="-2" id="s1O-4k-k8s"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SYp-OG-PUb" firstAttribute="leading" secondItem="nGe-GI-6M7" secondAttribute="trailing" constant="13" id="3KE-8a-wW8"/>

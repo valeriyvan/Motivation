@@ -10,8 +10,9 @@ import AppKit
 
 class ConfigurationWindowController: NSWindowController {
 
-	// MARK: - Properties
+    // MARK: - Properties
 
+    @IBOutlet weak var birthdatePicker: NSDatePicker!
 	@IBOutlet weak var lightRadio: NSButton!
 	@IBOutlet weak var moderateRadio: NSButton!
 	@IBOutlet weak var terrifyingRadio: NSButton!
@@ -22,6 +23,14 @@ class ConfigurationWindowController: NSWindowController {
 
 
 	// MARK: - NSWindowController
+
+    @IBAction func time(_ sender: NSButton) {
+        if birthdatePicker.datePickerElements.contains(.hourMinuteDatePickerElementFlag) {
+            birthdatePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
+        } else {
+            birthdatePicker.datePickerElements = [.hourMinuteDatePickerElementFlag, .yearMonthDayDatePickerElementFlag]
+        }
+    }
 
 	override func windowDidLoad() {
 		super.windowDidLoad()
