@@ -89,11 +89,11 @@ class AgeView: ScreenSaverView {
 		}
 	}
 
-	override func hasConfigureSheet() -> Bool {
+	override var hasConfigureSheet: Bool {
 		return true
 	}
 
-	override func configureSheet() -> NSWindow? {
+	override var configureSheet: NSWindow? {
 		return configurationWindowController.window
 	}
 	
@@ -172,25 +172,40 @@ class AgeView: ScreenSaverView {
 	fileprivate func fontWithSize(_ fontSize: CGFloat, monospace: Bool = true) -> NSFont {
 		let font: NSFont
 		if #available(OSX 10.11, *) {
-			font = .systemFont(ofSize: fontSize, weight: NSFontWeightThin)
+			font = .systemFont(ofSize: fontSize, weight: NSFont.Weight.thin)
 		} else {
 			font = NSFont(name: "HelveticaNeue-Thin", size: fontSize)!
 		}
 
 		let fontDescriptor: NSFontDescriptor
 		if monospace {
-			fontDescriptor = font.fontDescriptor.addingAttributes([
-				NSFontFeatureSettingsAttribute: [
+			fontDescriptor = font.fontDescriptor.addingAttributes(convertToNSFontDescriptorAttributeNameDictionary([
+				convertFromNSFontDescriptorAttributeName(NSFontDescriptor.AttributeName.featureSettings): [
 					[
-						NSFontFeatureTypeIdentifierKey: kNumberSpacingType,
-						NSFontFeatureSelectorIdentifierKey: kMonospacedNumbersSelector
+						convertFromNSFontDescriptorFeatureKey(NSFontDescriptor.FeatureKey.typeIdentifier): kNumberSpacingType,
+						convertFromNSFontDescriptorFeatureKey(NSFontDescriptor.FeatureKey.selectorIdentifier): kMonospacedNumbersSelector
 					]
 				]
-			])
+			]))
 		} else {
 			fontDescriptor = font.fontDescriptor
 		}
 
 		return NSFont(descriptor: fontDescriptor, size: fontSize)!
 	}
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSFontDescriptorAttributeNameDictionary(_ input: [String: Any]) -> [NSFontDescriptor.AttributeName: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSFontDescriptor.AttributeName(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSFontDescriptorAttributeName(_ input: NSFontDescriptor.AttributeName) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSFontDescriptorFeatureKey(_ input: NSFontDescriptor.FeatureKey) -> String {
+	return input.rawValue
 }
