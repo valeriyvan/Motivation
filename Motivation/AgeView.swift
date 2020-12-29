@@ -179,33 +179,18 @@ class AgeView: ScreenSaverView {
 
 		let fontDescriptor: NSFontDescriptor
 		if monospace {
-			fontDescriptor = font.fontDescriptor.addingAttributes(convertToNSFontDescriptorAttributeNameDictionary([
-				convertFromNSFontDescriptorAttributeName(NSFontDescriptor.AttributeName.featureSettings): [
-					[
-						convertFromNSFontDescriptorFeatureKey(NSFontDescriptor.FeatureKey.typeIdentifier): kNumberSpacingType,
-						convertFromNSFontDescriptorFeatureKey(NSFontDescriptor.FeatureKey.selectorIdentifier): kMonospacedNumbersSelector
-					]
-				]
-			]))
+            fontDescriptor = font.fontDescriptor.addingAttributes([
+                NSFontDescriptor.AttributeName.featureSettings: [
+                    [
+                        NSFontDescriptor.FeatureKey.typeIdentifier: kNumberSpacingType,
+                        NSFontDescriptor.FeatureKey.selectorIdentifier: kMonospacedNumbersSelector
+                    ]
+                ]
+            ])
 		} else {
 			fontDescriptor = font.fontDescriptor
 		}
 
 		return NSFont(descriptor: fontDescriptor, size: fontSize)!
 	}
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToNSFontDescriptorAttributeNameDictionary(_ input: [String: Any]) -> [NSFontDescriptor.AttributeName: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSFontDescriptor.AttributeName(rawValue: key), value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSFontDescriptorAttributeName(_ input: NSFontDescriptor.AttributeName) -> String {
-	return input.rawValue
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSFontDescriptorFeatureKey(_ input: NSFontDescriptor.FeatureKey) -> String {
-	return input.rawValue
 }
