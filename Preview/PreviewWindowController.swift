@@ -29,7 +29,7 @@ class PreviewWindowController: NSWindowController {
 	// MARK: - Actions
 
 	@IBAction func showConfiguration(sender: AnyObject?) {
-		if let sheet = screenSaver.configureSheet() {
+        if let sheet = screenSaver.configureSheet {
 			window?.beginSheet(sheet, completionHandler: nil)
 		}
 	}

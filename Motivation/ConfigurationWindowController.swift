@@ -25,10 +25,10 @@ class ConfigurationWindowController: NSWindowController {
 	// MARK: - NSWindowController
 
     @IBAction func time(_ sender: NSButton) {
-        if birthdatePicker.datePickerElements.contains(.hourMinuteDatePickerElementFlag) {
-            birthdatePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
+        if birthdatePicker.datePickerElements.contains(.hourMinute) {
+            birthdatePicker.datePickerElements = [.yearMonthDay]
         } else {
-            birthdatePicker.datePickerElements = [.hourMinuteDatePickerElementFlag, .yearMonthDayDatePickerElementFlag]
+            birthdatePicker.datePickerElements = [.hourMinute, .yearMonthDay]
         }
     }
 
@@ -36,9 +36,9 @@ class ConfigurationWindowController: NSWindowController {
 		super.windowDidLoad()
 
 		switch Preferences().motivationLevel {
-		case .light: lightRadio.state = NSOnState
-		case .moderate: moderateRadio.state = NSOnState
-		case .terrifying: terrifyingRadio.state = NSOnState
+		case .light: lightRadio.state = NSControl.StateValue.on
+		case .moderate: moderateRadio.state = NSControl.StateValue.on
+		case .terrifying: terrifyingRadio.state = NSControl.StateValue.on
 		}
 	}
 

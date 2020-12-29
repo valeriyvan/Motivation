@@ -89,11 +89,11 @@ class AgeView: ScreenSaverView {
 		}
 	}
 
-	override func hasConfigureSheet() -> Bool {
+	override var hasConfigureSheet: Bool {
 		return true
 	}
 
-	override func configureSheet() -> NSWindow? {
+	override var configureSheet: NSWindow? {
 		return configurationWindowController.window
 	}
 	
@@ -172,21 +172,21 @@ class AgeView: ScreenSaverView {
 	fileprivate func fontWithSize(_ fontSize: CGFloat, monospace: Bool = true) -> NSFont {
 		let font: NSFont
 		if #available(OSX 10.11, *) {
-			font = .systemFont(ofSize: fontSize, weight: NSFontWeightThin)
+			font = .systemFont(ofSize: fontSize, weight: NSFont.Weight.thin)
 		} else {
 			font = NSFont(name: "HelveticaNeue-Thin", size: fontSize)!
 		}
 
 		let fontDescriptor: NSFontDescriptor
 		if monospace {
-			fontDescriptor = font.fontDescriptor.addingAttributes([
-				NSFontFeatureSettingsAttribute: [
-					[
-						NSFontFeatureTypeIdentifierKey: kNumberSpacingType,
-						NSFontFeatureSelectorIdentifierKey: kMonospacedNumbersSelector
-					]
-				]
-			])
+            fontDescriptor = font.fontDescriptor.addingAttributes([
+                NSFontDescriptor.AttributeName.featureSettings: [
+                    [
+                        NSFontDescriptor.FeatureKey.typeIdentifier: kNumberSpacingType,
+                        NSFontDescriptor.FeatureKey.selectorIdentifier: kMonospacedNumbersSelector
+                    ]
+                ]
+            ])
 		} else {
 			fontDescriptor = font.fontDescriptor
 		}
