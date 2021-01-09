@@ -11,9 +11,47 @@ import ScreenSaver
 
 class AgeView: ScreenSaverView {
 
+    private lazy var sheetController: ConfigureSheetController = ConfigureSheetController()
+
+    var isPreviewBug: Bool = false
+
+    override init(frame: NSRect, isPreview: Bool) {
+        // Radar# FB7486243, legacyScreenSaver.appex always returns true, unlike what used
+        // to happen in previous macOS versions, see documentation here : https://developer.apple.com/documentation/screensaver/screensaverview/1512475-init$
+
+        var preview = true
+
+        // We can workaround that bug by looking at the size of the frame
+        // It's always 296.0 x 184.0 when running in preview mode
+        if frame.width > 400 && frame.height > 300 {
+            if isPreview {
+                isPreviewBug = true
+            }
+            preview = false
+        }
+
+        motivationLevel = Preferences().motivationLevel
+        super.init(frame: frame, isPreview: preview)!
+        initialize()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Not implemented")
+    }
+
+
+    override var hasConfigureSheet: Bool {
+        return true
+    }
+
+    override var configureSheet: NSWindow? {
+        return sheetController.window
+    }
+
+
 	// MARK: - Properties
 
-	fileprivate let textLabel: NSTextField = {
+	private let textLabel: NSTextField = {
 		let label = NSTextField()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.isEditable = false
@@ -22,52 +60,27 @@ class AgeView: ScreenSaverView {
 		label.isBezeled = false
 		label.isSelectable = false
 		label.textColor = .white
+        label.stringValue = "Здесь будет возраст"
 		return label
 	}()
 
-	fileprivate lazy var configurationWindowController: NSWindowController = {
-		return ConfigurationWindowController()
-	}()
+	private var motivationLevel: MotivationLevel
 
-	fileprivate var motivationLevel: MotivationLevel
-
-	fileprivate var birthday: Date? {
+	private var birthday: Date? {
 		didSet {
+            updateLabel()
 			updateFont()
 		}
-	}
-
-
-	// MARK: - Initializers
-
-	convenience init() {
-		self.init(frame: CGRect.zero, isPreview: false)
-	}
-
-	override init!(frame: NSRect, isPreview: Bool) {
-		motivationLevel = Preferences().motivationLevel
-		super.init(frame: frame, isPreview: isPreview)
-		initialize()
-	}
-
-	required init?(coder: NSCoder) {
-		motivationLevel = Preferences().motivationLevel
-		super.init(coder: coder)
-		initialize()
 	}
 
 	deinit {
 		NotificationCenter.default.removeObserver(self)
 	}
-	
 
 	// MARK: - NSView
 
 	override func draw(_ rect: NSRect) {
-		let backgroundColor: NSColor = .black
-
-		backgroundColor.setFill()
-		NSBezierPath.fill(bounds)
+        super.draw(rect)
 	}
 
 	// If the screen saver changes size, update the font
@@ -80,28 +93,24 @@ class AgeView: ScreenSaverView {
 	// MARK: - ScreenSaverView
 
 	override func animateOneFrame() {
-		if let birthday = birthday {
-			let age = ageForBirthday(birthday)
-			let format = "%0.\(motivationLevel.decimalPlaces)f"
-			textLabel.stringValue = String(format: format, age)
-		} else {
-			textLabel.stringValue = "Open Screen Saver Options to set your birthday."
-		}
-	}
+        updateLabel()
+    }
 
-	override var hasConfigureSheet: Bool {
-		return true
-	}
+    private func updateLabel() {
+        if let birthday = birthday {
+            let age = ageForBirthday(birthday)
+            let format = "%0.\(motivationLevel.decimalPlaces)f"
+            textLabel.stringValue = String(format: format, age)
+        } else {
+            textLabel.stringValue = "Open Screen Saver Options to set your birthday."
+        }
+    }
 
-	override var configureSheet: NSWindow? {
-		return configurationWindowController.window
-	}
-	
 
 	// MARK: - Private
 
 	/// Shared initializer
-	fileprivate func initialize() {
+	private func initialize() {
 		// Set animation time interval
 		animationTimeInterval = 1 / 30
 
@@ -121,7 +130,7 @@ class AgeView: ScreenSaverView {
 	}
 
 	/// Age calculation
-	fileprivate func ageForBirthday(_ birthday: Date) -> Double {
+	private func ageForBirthday(_ birthday: Date) -> Double {
 		let calendar = Calendar.current
 		let now = Date()
 
@@ -150,17 +159,17 @@ class AgeView: ScreenSaverView {
 	}
 
 	/// Motiviation level changed
-	@objc fileprivate func motivationLevelDidChange(_ notification: Notification?) {
+	@objc private func motivationLevelDidChange(_ notification: Notification?) {
 		motivationLevel = Preferences().motivationLevel
 	}
 
 	/// Birthday changed
-	@objc fileprivate func birthdayDidChange(_ notification: Notification?) {
+	@objc private func birthdayDidChange(_ notification: Notification?) {
 		birthday = Preferences().birthday
 	}
 
 	/// Update the font for the current size
-	fileprivate func updateFont() {
+	private func updateFont() {
 		if birthday != nil {
 			textLabel.font = fontWithSize(bounds.width / 10)
 		} else {
@@ -169,7 +178,7 @@ class AgeView: ScreenSaverView {
 	}
 
 	/// Get a font
-	fileprivate func fontWithSize(_ fontSize: CGFloat, monospace: Bool = true) -> NSFont {
+	private func fontWithSize(_ fontSize: CGFloat, monospace: Bool = true) -> NSFont {
 		let font: NSFont
 		if #available(OSX 10.11, *) {
 			font = .systemFont(ofSize: fontSize, weight: NSFont.Weight.thin)

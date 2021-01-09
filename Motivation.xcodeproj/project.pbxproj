@@ -9,25 +9,22 @@
 /* Begin PBXBuildFile section */
 		211437161B7DD4FB002AC9FA /* NSCalendar+Motivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211437151B7DD4FB002AC9FA /* NSCalendar+Motivation.swift */; };
 		211437171B7DD504002AC9FA /* NSCalendar+Motivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211437151B7DD4FB002AC9FA /* NSCalendar+Motivation.swift */; };
-		217CFEE61B7484CC002794CF /* ConfigurationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CFEE51B7484CC002794CF /* ConfigurationWindowController.swift */; };
-		217CFEE71B7484CC002794CF /* ConfigurationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CFEE51B7484CC002794CF /* ConfigurationWindowController.swift */; };
+		217CFEE61B7484CC002794CF /* ConfigureSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CFEE51B7484CC002794CF /* ConfigureSheetController.swift */; };
+		217CFEE71B7484CC002794CF /* ConfigureSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CFEE51B7484CC002794CF /* ConfigureSheetController.swift */; };
 		217CFEE91B7484ED002794CF /* Configuration.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217CFEE81B7484ED002794CF /* Configuration.xib */; };
 		217CFEEA1B7484ED002794CF /* Configuration.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217CFEE81B7484ED002794CF /* Configuration.xib */; };
-		217CFEEC1B748573002794CF /* PreviewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CFEEB1B748573002794CF /* PreviewWindowController.swift */; };
 		217CFEEE1B7486EB002794CF /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CFEED1B7486EB002794CF /* Preferences.swift */; };
 		217CFEEF1B7486EE002794CF /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CFEED1B7486EB002794CF /* Preferences.swift */; };
 		21F222351B73B5CD00B9A11A /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F222341B73B5CD00B9A11A /* AgeView.swift */; };
 		21F2223F1B73B60100B9A11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2223E1B73B60100B9A11A /* AppDelegate.swift */; };
-		21F222431B73B60100B9A11A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F222421B73B60100B9A11A /* Images.xcassets */; };
-		21F222461B73B60100B9A11A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F222441B73B60100B9A11A /* Main.storyboard */; };
 		21F2225B1B73B64300B9A11A /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F222341B73B5CD00B9A11A /* AgeView.swift */; };
+		3534060A25AA1AF40065C9EA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3534060925AA1AF40065C9EA /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		211437151B7DD4FB002AC9FA /* NSCalendar+Motivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+Motivation.swift"; sourceTree = "<group>"; };
-		217CFEE51B7484CC002794CF /* ConfigurationWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationWindowController.swift; sourceTree = "<group>"; };
+		217CFEE51B7484CC002794CF /* ConfigureSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureSheetController.swift; sourceTree = "<group>"; };
 		217CFEE81B7484ED002794CF /* Configuration.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Configuration.xib; sourceTree = "<group>"; };
-		217CFEEB1B748573002794CF /* PreviewWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewWindowController.swift; sourceTree = "<group>"; };
 		217CFEED1B7486EB002794CF /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		21F222261B73B5AC00B9A11A /* Motivation.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Motivation.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F2222A1B73B5AC00B9A11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,8 +32,7 @@
 		21F2223A1B73B60100B9A11A /* Preview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Preview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F2223D1B73B60100B9A11A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21F2223E1B73B60100B9A11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		21F222421B73B60100B9A11A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		21F222451B73B60100B9A11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3534060925AA1AF40065C9EA /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				21F222341B73B5CD00B9A11A /* AgeView.swift */,
-				217CFEE51B7484CC002794CF /* ConfigurationWindowController.swift */,
+				217CFEE51B7484CC002794CF /* ConfigureSheetController.swift */,
 				217CFEED1B7486EB002794CF /* Preferences.swift */,
 				211437151B7DD4FB002AC9FA /* NSCalendar+Motivation.swift */,
 				217CFEE81B7484ED002794CF /* Configuration.xib */,
@@ -100,9 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				21F2223E1B73B60100B9A11A /* AppDelegate.swift */,
-				217CFEEB1B748573002794CF /* PreviewWindowController.swift */,
-				21F222421B73B60100B9A11A /* Images.xcassets */,
-				21F222441B73B60100B9A11A /* Main.storyboard */,
+				3534060925AA1AF40065C9EA /* MainMenu.xib */,
 				21F2223C1B73B60100B9A11A /* Supporting Files */,
 			);
 			path = Preview;
@@ -217,9 +211,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F222431B73B60100B9A11A /* Images.xcassets in Resources */,
 				217CFEEA1B7484ED002794CF /* Configuration.xib in Resources */,
-				21F222461B73B60100B9A11A /* Main.storyboard in Resources */,
+				3534060A25AA1AF40065C9EA /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				217CFEE61B7484CC002794CF /* ConfigurationWindowController.swift in Sources */,
+				217CFEE61B7484CC002794CF /* ConfigureSheetController.swift in Sources */,
 				21F222351B73B5CD00B9A11A /* AgeView.swift in Sources */,
 				211437161B7DD4FB002AC9FA /* NSCalendar+Motivation.swift in Sources */,
 				217CFEEE1B7486EB002794CF /* Preferences.swift in Sources */,
@@ -242,26 +235,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F2223F1B73B60100B9A11A /* AppDelegate.swift in Sources */,
-				217CFEEC1B748573002794CF /* PreviewWindowController.swift in Sources */,
 				211437171B7DD504002AC9FA /* NSCalendar+Motivation.swift in Sources */,
 				217CFEEF1B7486EE002794CF /* Preferences.swift in Sources */,
-				217CFEE71B7484CC002794CF /* ConfigurationWindowController.swift in Sources */,
+				217CFEE71B7484CC002794CF /* ConfigureSheetController.swift in Sources */,
 				21F2225B1B73B64300B9A11A /* AgeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		21F222441B73B60100B9A11A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				21F222451B73B60100B9A11A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		21F2222F1B73B5AC00B9A11A /* Debug */ = {
@@ -313,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -363,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -378,6 +359,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Motivation/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";

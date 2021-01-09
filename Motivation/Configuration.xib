@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ConfigurationWindowController" customModule="Motivation" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="ConfigureSheetController" customModule="Motivation" customModuleProvider="target">
             <connections>
                 <outlet property="birthdatePicker" destination="24i-HD-fhj" id="bHR-UT-Eba"/>
                 <outlet property="lightRadio" destination="SYp-OG-PUb" id="QAx-UK-2Qi"/>
@@ -17,7 +17,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window identifier="Motivation" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="266" height="184"/>
@@ -45,7 +45,7 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </datePickerCell>
                         <connections>
-                            <binding destination="zet-Ww-APq" name="value" keyPath="self.birthday" id="EQq-LN-QTl"/>
+                            <action selector="dateDidChange:" target="-2" id="OyE-La-TSR"/>
                             <outlet property="nextKeyView" destination="SYp-OG-PUb" id="8Eg-2u-hwW"/>
                         </connections>
                     </datePicker>
@@ -137,6 +137,5 @@ DQ
             </view>
             <point key="canvasLocation" x="407" y="255"/>
         </window>
-        <customObject id="zet-Ww-APq" customClass="Preferences" customModule="Motivation" customModuleProvider="target"/>
     </objects>
 </document>
