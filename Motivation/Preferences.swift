@@ -60,7 +60,7 @@ class Preferences: NSObject {
 		}
 	}
 
-	fileprivate let defaults: ScreenSaverDefaults? = {
+	private let defaults: ScreenSaverDefaults? = {
 		let bundleIdentifier = Bundle(for: Preferences.self).bundleIdentifier
 		return bundleIdentifier.flatMap { ScreenSaverDefaults(forModuleWithName: $0) }
 	}()
