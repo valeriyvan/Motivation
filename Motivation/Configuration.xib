@@ -23,11 +23,11 @@
             <rect key="contentRect" x="196" y="240" width="266" height="184"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="266" height="184"/>
+                <rect key="frame" x="0.0" y="0.0" width="266" height="210"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cf0-hz-k84">
-                        <rect key="frame" x="35" y="148" width="90" height="16"/>
+                        <rect key="frame" x="18" y="174" width="107" height="16"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Your Birthday:" id="niJ-ql-s5d">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -35,7 +35,7 @@
                         </textFieldCell>
                     </textField>
                     <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="24i-HD-fhj">
-                        <rect key="frame" x="136" y="144" width="113" height="28"/>
+                        <rect key="frame" x="136" y="170" width="113" height="28"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="6zn-zD-imf">
                             <font key="font" metaFont="system"/>
                             <date key="date" timeIntervalSinceReferenceDate="-595929600">
@@ -64,7 +64,7 @@ DQ
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="SYp-OG-PUb">
-                        <rect key="frame" x="135" y="106" width="53" height="18"/>
+                        <rect key="frame" x="135" y="104" width="53" height="18"/>
                         <buttonCell key="cell" type="radio" title="Light" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="tvg-2W-kKo">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -75,7 +75,7 @@ DQ
                         </connections>
                     </button>
                     <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="pTh-rE-L1F">
-                        <rect key="frame" x="135" y="82" width="81" height="20"/>
+                        <rect key="frame" x="135" y="82" width="81" height="18"/>
                         <buttonCell key="cell" type="radio" title="Moderate" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="NDS-f7-gMb">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -97,16 +97,15 @@ DQ
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nGe-GI-6M7">
-                        <rect key="frame" x="18" y="107" width="107" height="16"/>
+                        <rect key="frame" x="18" y="105" width="107" height="16"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Motivation Level:" id="bSs-Rq-qqI">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HSJ-VB-Zwi">
-                        <rect key="frame" x="35" y="123" width="52" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="HSJ-VB-Zwi">
+                        <rect key="frame" x="18" y="149" width="52" height="18"/>
                         <buttonCell key="cell" type="check" title="Time" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3dd-s4-7Zs">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -117,6 +116,7 @@ DQ
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="nGe-GI-6M7" firstAttribute="top" secondItem="HSJ-VB-Zwi" secondAttribute="bottom" constant="30" id="3Bw-aW-sRE"/>
                     <constraint firstItem="SYp-OG-PUb" firstAttribute="leading" secondItem="nGe-GI-6M7" secondAttribute="trailing" constant="13" id="3KE-8a-wW8"/>
                     <constraint firstItem="24i-HD-fhj" firstAttribute="leading" secondItem="SYp-OG-PUb" secondAttribute="leading" id="9oo-mN-Ja9"/>
                     <constraint firstItem="pTh-rE-L1F" firstAttribute="top" secondItem="SYp-OG-PUb" secondAttribute="bottom" constant="6" id="LRy-ue-fUG"/>
@@ -128,11 +128,13 @@ DQ
                     <constraint firstItem="nGe-GI-6M7" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="Tv7-fc-0Cp"/>
                     <constraint firstItem="nsQ-3M-79j" firstAttribute="top" secondItem="daF-cg-qud" secondAttribute="bottom" constant="20" id="YD2-8B-PJg"/>
                     <constraint firstAttribute="trailing" secondItem="nsQ-3M-79j" secondAttribute="trailing" constant="20" id="Zr4-bI-6AB"/>
-                    <constraint firstItem="nGe-GI-6M7" firstAttribute="top" secondItem="cf0-hz-k84" secondAttribute="bottom" constant="25" id="dZC-vk-CO6"/>
                     <constraint firstItem="cf0-hz-k84" firstAttribute="trailing" secondItem="nGe-GI-6M7" secondAttribute="trailing" id="dp2-Mg-cnb"/>
                     <constraint firstAttribute="trailing" secondItem="24i-HD-fhj" secondAttribute="trailing" constant="20" id="eXN-Is-gp6"/>
+                    <constraint firstItem="cf0-hz-k84" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="hue-B9-yMz"/>
+                    <constraint firstItem="HSJ-VB-Zwi" firstAttribute="leading" secondItem="cf0-hz-k84" secondAttribute="leading" id="nuB-B2-Pzn"/>
                     <constraint firstItem="nGe-GI-6M7" firstAttribute="baseline" secondItem="SYp-OG-PUb" secondAttribute="baseline" id="ny3-IK-MSk"/>
                     <constraint firstItem="pTh-rE-L1F" firstAttribute="leading" secondItem="SYp-OG-PUb" secondAttribute="leading" id="t4X-V3-eGs"/>
+                    <constraint firstItem="HSJ-VB-Zwi" firstAttribute="top" secondItem="cf0-hz-k84" secondAttribute="bottom" constant="9" id="wfp-rH-Y2g"/>
                 </constraints>
             </view>
             <point key="canvasLocation" x="407" y="255"/>
