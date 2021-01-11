@@ -28,23 +28,31 @@ class Preferences: NSObject {
 	static var birthdayDidChangeNotificationName = "Preferences.birthdayDidChangeNotification"
 	static var motivationLevelDidChangeNotificationName = "Preferences.motivationLevelDidChangeNotification"
 
-	var birthday: Date? {
-		get {
-			let timestamp = defaults?.object(forKey: "Birthday") as? TimeInterval
-			return timestamp.map { Date(timeIntervalSince1970: $0) }
-		}
-
-		set {
-			if let date = newValue {
-				defaults?.set(date.timeIntervalSince1970, forKey: "Birthday")
-			} else {
-				defaults?.removeObject(forKey: "Birthday")
-			}
-			defaults?.synchronize()
-
-			NotificationCenter.default.post(name: Notification.Name(rawValue: type(of: self).birthdayDidChangeNotificationName), object: newValue)
-		}
-	}
+    var birthdayComponents: DateComponents? {
+        get {
+            if let data = defaults?.object(forKey: "BirthdayComponents") as? Data,
+               let dateComponents = try? JSONDecoder().decode(DateComponents.self, from: data) {
+                return dateComponents
+            } else if let timestamp = defaults?.object(forKey: "Birthday") as? TimeInterval {
+                // Trying read Date stored by earlier version
+                defaults?.removeObject(forKey: "Birthday")
+                let date = Date(timeIntervalSince1970: timestamp)
+                // Here we suppose time of birth is not included
+                return Calendar.current.dateComponents([.year, .month, .day], from: date)
+            } else {
+                // Not available. Probably, first launch.
+                return nil
+            }
+        }
+        set {
+            if let jsonData = try? JSONEncoder().encode(newValue) {
+                defaults?.setValue(jsonData, forKey: "BirthdayComponents")
+                defaults?.synchronize()
+            }
+            let notificationName = Notification.Name(rawValue: type(of: self).birthdayDidChangeNotificationName)
+            NotificationCenter.default.post(name: notificationName, object: newValue)
+        }
+    }
 
 	var motivationLevel: MotivationLevel {
 		get {
@@ -56,7 +64,8 @@ class Preferences: NSObject {
 			defaults?.set(newValue.rawValue, forKey: "MotivationLevel")
 			defaults?.synchronize()
 
-			NotificationCenter.default.post(name: Notification.Name(rawValue: type(of: self).motivationLevelDidChangeNotificationName), object: newValue.rawValue)
+            let notificationName = Notification.Name(rawValue: type(of: self).motivationLevelDidChangeNotificationName)
+			NotificationCenter.default.post(name: notificationName, object: newValue.rawValue)
 		}
 	}
 

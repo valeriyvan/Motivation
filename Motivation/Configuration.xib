@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigureSheetController" customModule="Motivation" customModuleProvider="target">
             <connections>
                 <outlet property="birthdatePicker" destination="24i-HD-fhj" id="bHR-UT-Eba"/>
+                <outlet property="birthdayIncludesTimeToggle" destination="HSJ-VB-Zwi" id="Pjd-It-nKx"/>
                 <outlet property="lightRadio" destination="SYp-OG-PUb" id="QAx-UK-2Qi"/>
                 <outlet property="moderateRadio" destination="pTh-rE-L1F" id="Okf-GD-efx"/>
                 <outlet property="terrifyingRadio" destination="daF-cg-qud" id="Qzr-li-xhu"/>
@@ -105,8 +106,8 @@ DQ
                         </textFieldCell>
                     </textField>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="HSJ-VB-Zwi">
-                        <rect key="frame" x="18" y="149" width="52" height="18"/>
-                        <buttonCell key="cell" type="check" title="Time" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3dd-s4-7Zs">
+                        <rect key="frame" x="18" y="149" width="97" height="18"/>
+                        <buttonCell key="cell" type="check" title="Include time" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3dd-s4-7Zs">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
