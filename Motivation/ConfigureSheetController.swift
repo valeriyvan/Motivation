@@ -14,9 +14,28 @@ class ConfigureSheetController: NSObject {
 
     @IBOutlet var window: NSWindow?
     @IBOutlet weak var birthdatePicker: NSDatePicker!
+    @IBOutlet weak var birthdayIncludesTimeToggle: NSButton!
 	@IBOutlet weak var lightRadio: NSButton!
 	@IBOutlet weak var moderateRadio: NSButton!
 	@IBOutlet weak var terrifyingRadio: NSButton!
+
+    private var pickerElements: NSDatePicker.ElementFlags {
+        if birthdayIncludesTime {
+            return [.yearMonthDay, .hourMinute]
+        } else {
+            return [.yearMonthDay]
+        }
+    }
+
+    private var birthdayIncludesTime: Bool { birthdayIncludesTimeToggle.state.rawValue != 0 }
+
+    private var calendarComponents: Set<Calendar.Component> {
+        if birthdayIncludesTime {
+            return [.year, .month, .day, .hour, .minute]
+        } else {
+            return [.year, .month, .day]
+        }
+    }
 
     override init() {
         super.init()
@@ -26,26 +45,46 @@ class ConfigureSheetController: NSObject {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
         switch Preferences().motivationLevel {
         case .light: lightRadio.state = .on
         case .moderate: moderateRadio.state = .on
         case .terrifying: terrifyingRadio.state = .on
         }
-        if let birthday = Preferences().birthday {
-            birthdatePicker.dateValue = birthday
+        
+        let birthDate: Date
+        let timeIsIncluded: Bool
+        if let dateComponents = Preferences().birthdayComponents,
+           let date = Calendar.current.date(from: dateComponents)
+        {
+            birthDate = date
+            timeIsIncluded = dateComponents.hour != nil
+        } else {
+            // Probably, first launch
+            birthDate = Date()
+            timeIsIncluded = false
         }
+        birthdatePicker.dateValue = birthDate
+        birthdayIncludesTimeToggle.state = timeIsIncluded ? .on : .off
+        birthdatePicker.datePickerElements = pickerElements
     }
 
     @IBAction func dateDidChange(_ sender: NSDatePicker) {
-        Preferences().birthday = sender.dateValue
+        updateDate()
+    }
+
+    private func updateDate() {
+        Preferences().birthdayComponents =
+            Calendar
+                .current
+                .dateComponents(calendarComponents,
+                                from: birthdatePicker.dateValue)
+
     }
 
     @IBAction func time(_ sender: NSButton) {
-        if birthdatePicker.datePickerElements.contains(.hourMinute) {
-            birthdatePicker.datePickerElements = [.yearMonthDay]
-        } else {
-            birthdatePicker.datePickerElements = [.hourMinute, .yearMonthDay]
-        }
+        birthdatePicker.datePickerElements = pickerElements
+        updateDate()
     }
 
     @IBAction func close(_ sender: NSButton) {
